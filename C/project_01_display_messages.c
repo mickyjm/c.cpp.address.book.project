@@ -1,82 +1,44 @@
-#include <stdio.h>
-
-/*****************************************************************
- *
- * NAME: Michael Mangrobang
- *
- * HOMEWORK: Project 1
- *
- * CLASS: ICS 212
- *
+/********************
+ * <copyright information>
+ * AUTHOR: Michael (Micky) Mangrobang
+ * COURSE: ICS 212 Program Structure
  * INSTRUCTOR: Ravi Narayan
- *
- * DATE: October 17, 2015
- *
+ * DATE: 17 October 2015
+ * REVISIONS: 07 June 2018
  * FILE: project_01_display_messages.c
- *
- * DESCRIPTION: Source file that contains majority of the printf()
- *              functions to display the menu and interface messages
- *
- *****************************************************************/
+ * DESC: Source file that contains majority of the printf() functions to display the menu and interface messages
+ ********************/
+ #include <stdio.h>
 
-/*****************************************************************
- *
- * Function name: debugMessage
- *
- * DESCRIPTION: Displays the debug mode enabled message and calls
- *              the welcomeMessage() function
- *
- *****************************************************************/
-
+/**********
+ * FUNC: debugMessage
+ * DESC: Displays the debug mode enabled message and calls the welcomeMessage() function
+ **********/
 void debugMessage();
 
-/*****************************************************************
- *
- * Function name: welcomeMessage
- *
- * DESCRIPTION: Displays the function and the name of the
- *              application and the owner of the application,
- *              "Micky", which is my nickname
- *
- *****************************************************************/
-
+/**********
+ * FUNC: welcomeMessage
+ * DESC: Displays the function and the name of the application and the owner of the application, "Micky", which is my nickname
+ **********/
 void welcomeMessage();
 
-/*****************************************************************
- *
- * Function name: displayCommands
- *
- * DESCRIPTION: Displays the commands and other messages
- *              depending on the number given in the parameter
- *
- * Parameters: message (int) : Decides what message to display
- *                             "What would you like to do?" at the
- *                             start of the application and
- *                             "What would you like to do next?"
- *                             after the use of a function
- *
- *****************************************************************/
-
+/**********
+ * FUNC: displayCommands
+ * DESC: Displays the commands and other messages depending on the number given in the parameter
+ * PARAM001: message (int) - Decides what message to display "What would you like to do?" at the start of the application and "What would you like to do next?" after the use of a function
+ **********/
 void displayCommands(int message);
 
-/*****************************************************************
- *
- * Function name: emptyDatabase
- *
- * DESCRIPTION: Displays that the database is empty when called
- *
- *****************************************************************/
-
+/**********
+ * FUNC: emptyDatabase
+ * DESC: Displays that the database is empty when called
+ **********/
 void emptyDatabase();
 
-/*****************************************************************
- *
- * Function name: endMessage
- *
- * DESCRIPTION: Displays that the application has ended
- *
- *****************************************************************/
-
+/**********
+ * FUNC: endMessage
+ * DESC: Displays that the application has ended
+ **********/
 void endMessage();
 
 void debugMessage() {
@@ -91,14 +53,14 @@ void welcomeMessage() {
 }
 
 void displayCommands(int message) {
-    printf("Usage: \n\t");
-    printf("1: Add a new record into the database. \n\t");
-    printf("2: Print information about a record using the name as the key. \n\t");
-    printf("3: Modify a record in the database using the name as the key. \n\t");
-    printf("4: Print all information in the database. \n\t");
-    printf("5: Delete an existing record from the database. \n\t");
-    printf("6: Delete all existing records from the database. \n\t");
-    printf("7: Quit the program. \n");
+    printf("Usage: \n");
+    printf("\t1: Add a new record into the database. \n");
+    printf("\t2: Print information about a record using the name as the key. \n");
+    printf("\t3: Modify a record in the database using the name as the key. \n");
+    printf("\t4: Print all information in the database. \n");
+    printf("\t5: Delete an existing record from the database. \n");
+    printf("\t6: Delete all existing records from the database. \n");
+    printf("\t7: Quit the program. \n");
 
     if(message == 1) {
         printf("What would you like to do? \n\n");

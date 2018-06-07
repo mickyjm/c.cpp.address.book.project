@@ -1,157 +1,82 @@
-/*****************************************************************
- *
- * NAME: Michael Mangrobang
- *
- * HOMEWORK: Project 1
- *
- * CLASS: ICS 212
- *
+/********************
+ * <copyright information>
+ * AUTHOR: Michael (Micky) Mangrobang
+ * COURSE: ICS 212 Program Structure
  * INSTRUCTOR: Ravi Narayan
- *
- * DATE: October 17, 2015
- *
- * FILE: project_01_database.c
- *
- * DESCRIPTION: Source file that contains majority of the user
- *              interface functions for the application
- *
- *****************************************************************/
-
+ * DATE: 17 October 2015
+ * LAST EDITED 07 June 2018
+ * FILE: address_book_database.c
+ * DESC: Source file that contains majority of the user interface functions for the application
+ ********************/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "record.h"
 
-/*****************************************************************
- *
- * Function name: addRecord
- *
- * DESCRIPTION: Adds a new record node to the end of the list
- *
- * Parameters: start (struct record **start): Address of start
- *                                            pointer, the start
- *                                            of the list
- *             inname (char []): Name of person to store in the
- *                               record
- *             inaddress (char []): Address of person to store
- *                                  in the record
- *             inbirthyear (int): Birth year of person to store
- *                                in the record
- *             intelno (char []): Telephone number of the person
- *                                to store in the record
- *
- * Return values: 1 : Record has been added to the database
- *
- *****************************************************************/
-
+/**********
+ * FUNC: addRecord
+ * DESC: Adds a new record node to the end of the list
+ * PARAM001: start (struct record **start) - Address of start pointer, the start of the list
+ * PARAM002: inname (char []) - Name of person to store in the record
+ * PARAM003: inaddress (char []) - Address of person to store in the record
+ * PARAM004: inbirthyear (int) - Birth year of person to store in the record
+ * PARAM005: intelno (char []) - Telephone number of the person to store in the record
+ * RETURN: 1 - Record has been added to the database
+ **********/
 int addRecord(struct record **start,char inname[],char inaddress[], int inbirthyear, char intelno[]);
 
-/*****************************************************************
- *
- * Function name: printRecord
- *
- * DESCRIPTION: Prints all records with the same name that is
- *              passed through the parameters
- *
- * Parameters: start (struct record *): Start pointer, the start
- *                                      of the list
- *             inname (char []): The person's name to find and
- *                               print
- *
- * Return values: 1 : All records of the name given have been
- *                    printed
- *
- *****************************************************************/
-
+/**********
+ * FUNC: printRecord
+ * DESC: Prints all records with the same name that is passed through the parameters
+ * PARAM001: start (struct record *) - Start pointer, the start of the list
+ * PARAM002: inname (char []) - The person's name to find and print
+ * RETURN: 1 - All records of the name given have been printed
+ **********/
 int printRecord(struct record *start, char inname[]);
 
-/*****************************************************************
- *
- * Function name: modifyRecord
- *
- * DESCRIPTION: Modifies all records with the same name that is
- *              passed through the parameters, with the new
- *              address and telephone number that has been passed
- *
- * Parameters: start (struct record *): Start pointer, the start
- *                                      of the list
- *             inname (char []): The person's name to find and
- *                               modify
- *             inaddress (char []): New address of person(s) to
- *                                  store in the record
- *             intelno (char []): New telephone number of the
- *                                person(s) to store in the record
- *
- * Return values: 1 : All records of the name given have been
- *                    printed
- *
- *****************************************************************/
-
+/**********
+ * FUNC: modifyRecord
+ * DESC: Modifies all records with the same name that is passed through the parameters, with the new address and telephone number that has been passed
+ * PARAM001: start (struct record *) - Start pointer, the start of the list
+ * PARAM002: inname (char []) - The person's name to find and modify
+ * PARAM003: inaddress (char []) - New address of person(s) to store in the record
+ * PARAM004: intelno (char []) - New telephone number of the person(s) to store in the record
+ * RETURN: 1 - All records of the name given have been printed
+ **********/
 int modifyRecord(struct record *start, char inname[], char inaddress[], char intelno[]);
 
-/*****************************************************************
- *
- * Function name: printAllRecords
- *
- * DESCRIPTION: Prints all records within the database
- *
- * Parameters: start (struct record *): Start pointer, the start
- *                                      of the list
- *
- *****************************************************************/
-
+/**********
+ * FUNC: printAllRecords
+ * DESC: Prints all records within the database
+ * PARAM001: start (struct record *) - Start pointer, the start of the list
+ **********/
 void printAllRecords(struct record *start);
 
-/*****************************************************************
- *
- * Function name: deleteRecord
- *
- * DESCRIPTION: Deletes all records of the same name that is
- *              passed through the parameters
- *
- * Parameters: start (struct record **): Address of start, the
- *                                      start of the list
- *             inname (char []): The person's name to find and
- *                               delete
- *
- * Return values: 1 : All records of the name given have been
- *                    deleted
- *
- *****************************************************************/
-
+/**********
+ * FUNC: deleteRecord
+ * DESC: Deletes all records of the same name that is passed through the parameters
+ * PARAM001: start (struct record **) - Address of start, the start of the list
+ * PARAM002: inname (char []) - The person's name to find and delete
+ * RETURN: 1 - All records of the name given have been deleted
+ **********/
 int deleteRecord(struct record **start, char inname[]);
 
-/*****************************************************************
- *
- * Function name: cleanUp
- *
- * DESCRIPTION: Deletes all records within the database
- *
- * Parameters: start (struct record **): Addres of start, the
- *                                       start of the list
- *
- *****************************************************************/
-
+/**********
+ * FUNC: cleanUp
+ * DESC: Deletes all records within the database
+ * PARAM001: start (struct record **) - Addres of start, the start of the list
+ **********/
 void cleanUp(struct record**start);
 
-/*****************************************************************
- *
- * Function name: printDebug
- *
- * DESCRIPTION: Prints debug messages of all the functions
- *
- * Parameters: n (int): Determines which function has been called
- *             inname (char []): Name of person passed through
- *                               the parameter
- *             inaddress (char []): Address of person passed
- *                                  through the parameter
- *             inbirthyear (int): Birth year of person passed
- *                                through the parameter
- *             intelno (char []): Telephone number of the person
- *                                passed through the parameter
- *
- *****************************************************************/
-
+/**********
+ * FUNC: printDebug
+ * DESC: Prints debug messages of all the functions
+ * PARAM001: n (int) - Determines which function has been called
+ * PARAM002: inname (char []) - Name of person passed through the parameter
+ * PARAM003: inaddress (char []) - Address of person passed through the parameter
+ * PARAM004: inbirthyear (int) - Birth year of person passed through the parameter
+ * PARAM005: intelno (char []): Telephone number of the person passed through the parameter
+ **********/
 void printDebug(int n, char inname[], char inaddress[], int inbirthyear, char intelno[]);
 
 extern int debugOn;

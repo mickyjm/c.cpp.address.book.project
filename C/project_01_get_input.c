@@ -1,81 +1,43 @@
-/*****************************************************************
- *
- * NAME: Michael Mangrobang
- *
- * HOMEWORK: Project 1
- *
- * CLASS: ICS 212
- *
+/********************
+ * <copyright information>
+ * AUTHOR: Michael (Micky) Mangrobang
+ * COURSE: ICS 212 Program Structure
  * INSTRUCTOR: Ravi Narayan
- *
- * DATE: October 17, 2015
- *
+ * DATE: 17 October 2015
+ * REVISIONS: 07 June 2018
  * FILE: project_01_get_input.c
- *
- * DESCRIPTION: Source file that contains the user input code to
- *              recieve input and returns the input
- *
- *****************************************************************/
-
+ * DESC: Source file that contains the user input code to recieve input and returns the input
+ ********************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-/*****************************************************************
- *
- * Function name: *getName
- *
- * DESCRIPTION: Recieves string input from the user and stores
- *              it in a pointer and returns it
- *
- * Return values: name (char *): The name of the person to store
- *                               in the record
- *
- *****************************************************************/
-
+/**********
+ * FUNC: *getName
+ * DESC: Recieves string input from the user and stores it in a pointer and returns it
+ * RETURN: name (char *) - The name of the person to store in the record
+ **********/
 char *getName();
 
-/*****************************************************************
- *
- * Function name: *getAddress
- *
- * DESCRIPTION: Recieves multiple lines of string input from the
- *              user and stores it in a pointer and returns it
- *
- * Return values: address (char *): The person's address to store
- *                               in the record
- *
+/**********
+ * FUNC: *getAddress
+ * DESC: Recieves multiple lines of string input from the user and stores it in a pointer and returns it
+ * RETURN: address (char *) - The person's address to store in the record
  *****************************************************************/
-
 char *getAddress();
 
-/*****************************************************************
- *
- * Function name: getBirthyear
- *
- * DESCRIPTION: Recieves integer input from the user and stores it
- *              in a int and returns it. Will also deny character
- *              input
- *
- * Return values: birthyear (int): The person's year of birth to
- *                               store in the record
- *
- *****************************************************************/
-
+/**********
+ * FUNC: getBirthyear
+ * DESC: Recieves integer input from the user and stores it in a int and returns it. Will also deny character input
+ * RETURN: birthyear (int) - The person's year of birth to store in the record
+ **********/
 int getBirthyear();
 
-/*****************************************************************
- *
- * Function name: *getTelno
- *
- * DESCRIPTION: Recieves string input from the user and stores it
- *              in a pointer and returns it
- *
- * Return values: telno (char *): The person's telephone number to
- *                                store in the record
- *
- *****************************************************************/
-
+/**********
+ * FUNC: *getTelno
+ * DESC: Recieves string input from the user and stores it in a pointer and returns it
+ * RETURN: telno (char *) - The person's telephone number to store in the record
+ **********/
 char *getTelno();
 
 char *getName() {

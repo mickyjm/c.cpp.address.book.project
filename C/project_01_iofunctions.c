@@ -1,63 +1,36 @@
-/*****************************************************************
- *
- * NAME: Michael Mangrobang
- *
- * HOMEWORK: Project 1
- *
- * CLASS: ICS 212
- *
+/********************
+ * <copyright information>
+ * AUTHOR: Michael (Micky) Mangrobang
+ * COURSE: ICS 212 Program Structure
  * INSTRUCTOR: Ravi Narayan
- *
- * DATE: October 17, 2015
- *
+ * DATE: 17 October 2015
+ * REVISIONS: 07 June 2018
  * FILE: project_01_iofunctions.c
- *
- * DESCRIPTION: Source file that holds the readfile and writefile
- *              functions.
- *
- *****************************************************************/
-
+ * DESC: Source file that holds the readfile and writefile functions.
+ ********************/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "record.h"
 
-/*****************************************************************
- *
- * Function name: readfile
- *
- * DESCRIPTION: Reads the given file and then stores the information
- *              into a struct record.
- *
- * Parameters: start (struct record **): The address of the struct
- *                                       record pointer at the
- *                                       start of the database
- *             filename (char []): The name of the file to read from
- *
- * Return values: 0 : file is empty
- *                1 : file is not empty and records have been added
- *                    into the database
- *                error : file could not be found and exits application
- *
- *****************************************************************/
-
+/**********
+ * FUNC: readfile
+ * DESC: Reads the given file and then stores the information into a struct record.
+ * PARAM001: start (struct record **) - The address of the struct record pointer at the start of the database
+ * PARAM002: filename (char []) - The name of the file to read from
+ * RETURN: 0 - file is empty
+ *         1 - file is not empty and records have been added into the database
+ *         error - file could not be found and exits application
+ **********/
 int readfile(struct record **start, char filename[]);
 
-/*****************************************************************
- *
- * Function name: writefile
- *
- * DESCRIPTION: Writes into the given file from the stored information
- *              in the struct record
- *
- * Parameters: start (struct record *) : The struct record pointer
- *                                       at the start of the database
- *             filename (char []): The name of the file to write to
- *
- * Return values: error : file could not be found and exits application
- *
- *****************************************************************/
-
+/**********
+ * FUNC: writefile
+ * DESC: Writes into the given file from the stored information in the struct record
+ * PARAM001: start (struct record *) - The struct record pointer at the start of the database
+ * PARAM002: filename (char []) - The name of the file to write to
+ * RETURN: error - file could not be found and exits application
+ **********/
 void writefile(struct record *start, char filename[]);
 
 extern int debugOn;
