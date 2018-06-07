@@ -23,17 +23,17 @@
 #include <string.h>
 #include <stdlib.h>
 #include "record.h"
-#include "project_01_display_messages.c"
-#include "project_01_get_input.c"
-#include "project_01_iofunctions.c"
-#include "project_01_database.c"
+//#include "project_01_display_messages.c"
+//#include "project_01_get_input.c"
+//#include "project_01_iofunctions.c"
+//#include "project_01_database.c"
 
 /*****************************************************************
  *
  * Function name: debugError
  *
  * DESCRIPTION: Displays the illegal command line input and calls
- *              calls the displayMenu function to display commands 
+ *              calls the displayMenu function to display commands
  *
  * Parameters: illegal[] (char) : Takes in command line if the
  *                                second string is not "debug"
@@ -235,7 +235,7 @@ void main(int argc, char *argv[])
 
             displayCommands(0);
 
-        }        
+        }
 
     } while(input != 7);
 
