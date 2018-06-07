@@ -77,26 +77,18 @@ void emptyDatabase();
 
 void endMessage();
 
-void debugMessage()
-{
-
+void debugMessage() {
     printf("******************** \n");
     printf("     DEBUG MODE \n");
     printf("******************** \n\n");
     welcomeMessage();
-
 }
 
-void welcomeMessage()
-{
-
+void welcomeMessage() {
     printf("Welcome User! \nThis is Micky's Address Book Application! \n");
-
 }
 
-void displayCommands(int message)
-{
-
+void displayCommands(int message) {
     printf("Usage: \n\t");
     printf("1: Add a new record into the database. \n\t");
     printf("2: Print information about a record using the name as the key. \n\t");
@@ -106,36 +98,22 @@ void displayCommands(int message)
     printf("6: Delete all existing records from the database. \n\t");
     printf("7: Quit the program. \n");
 
-    if(message == 1)
-    {
-
+    if(message == 1) {
         printf("What would you like to do? \n\n");
-
-    }
-    else if(message == 0)
-    {
-
+    } else if(message == 0) {
         printf("What would you like to do next? \n\n");
-
     }
-
 }
 
-void emptyDatabase()
-{
-
+void emptyDatabase() {
     printf("~~~~~~~~~~~~~~~ \n");
     printf("The database is empty. \n");
     printf("~~~~~~~~~~~~~~~ \n");
-
 }
 
-void endMessage()
-{
-
+void endMessage() {
     printf("Goodbye. \nThank you for using Micky's Address Book Application! \n");
     printf("---------------------- \n");
     printf("Application terminated \n");
     printf("---------------------- \n\n");
-
 }

@@ -74,9 +74,7 @@ int getBirthyear();
 
 char *getTelno();
 
-char *getName()
-{
-
+char *getName() {
     char dummy[5];
     char *name = (char *)malloc(25);
 
@@ -89,12 +87,9 @@ char *getName()
     strtok(name, "\n");
 
     return name;
-
 }
 
-char *getAddress()
-{
-
+char *getAddress() {
     char c;
     int numberChar;
     char *address = (char *)malloc(80);
@@ -106,53 +101,38 @@ char *getAddress()
 
     /*After pressing enter, reads input character by character until it reads '$'*/
     c = getchar();
-    while (numberChar < 80 && c != '$')
-    {
-
+    while (numberChar < 80 && c != '$') {
         /*Assigns each character to the array position including '\n' and exlucding '$'*/
         address[numberChar] = c;
         numberChar++;
         c = getchar();
-
     }
 
     return address;
-
 }
 
-int getBirthyear()
-{
-
+int getBirthyear() {
     char ch;
     int birthyear;
 
     printf("Please enter the contact's BIRTH YEAR. \n");
-
     /*Checks to see if the input is integers*/
     while (scanf("%d", &birthyear) != 1) {
 
-        while ((ch = getchar()) != '\n')
-        {
-
+        while ((ch = getchar()) != '\n') {
             /*Disposes input that is not numbers*/
             putchar(ch);
-
         }
 
         printf(" is not an integer. Please enter an integer value. \n");
-
     }
 
     return birthyear;
-
 }
 
-char *getTelno()
-{
-
+char *getTelno() {
     char dummy[5];
     char *telno = (char *)malloc(15);
-
     /*Dummy fgets to take in the '\n' character from the address input*/
     fgets(dummy, 5, stdin);
 
@@ -162,5 +142,4 @@ char *getTelno()
     strtok(telno, "\n");
 
     return telno;
-
 }

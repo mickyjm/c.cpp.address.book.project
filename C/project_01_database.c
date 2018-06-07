@@ -26,7 +26,7 @@
  * Parameters: start (struct record **start): Address of start
  *                                            pointer, the start
  *                                            of the list
- *             inname (char []): Name of person to store in the 
+ *             inname (char []): Name of person to store in the
  *                               record
  *             inaddress (char []): Address of person to store
  *                                  in the record
@@ -151,18 +151,14 @@ void printDebug(int n, char inname[], char inaddress[], int inbirthyear, char in
 
 extern int debugOn;
 
-int addRecord(struct record **start, char inname[], char inaddress[], int inbirthyear, char intelno[])
-{
+int addRecord(struct record **start, char inname[], char inaddress[], int inbirthyear, char intelno[]) {
 
     struct record *temp;
     struct record *index;
     struct record *previous;
 
-    if (debugOn)
-    {
-
+    if (debugOn) {
         printDebug(1, inname, inaddress, inbirthyear, intelno);
-
     }
 
     temp = (struct record *)malloc(sizeof(struct record));
@@ -175,40 +171,27 @@ int addRecord(struct record **start, char inname[], char inaddress[], int inbirt
     index = *start;
     previous = NULL;
 
-    while(index != NULL)
-    {
-
+    while(index != NULL) {
         previous = index;
         index = index->next;
-
     }
 
-    if(previous == NULL)
-    {
-
+    if(previous == NULL) {
         /*Makes sure START is still pointing to the start of the list*/
         temp->next = *start;
         *start = temp;
-
-    }
-    else
-    {
-
+    } else {
         /*Makes sure the nodes are connected*/
         previous->next = temp;
         temp->next = index;
-
     }
 
     printf("Record has been added. \n");
 
     return 1;
-
 }
 
-int printRecord(struct record *start, char inname[])
-{
-
+int printRecord(struct record *start, char inname[]) {
     struct record *index;
     int printed;
     int namecmp;
@@ -216,21 +199,14 @@ int printRecord(struct record *start, char inname[])
     index = start;
     printed = 0;
 
-    if (debugOn)
-    {
-
+    if (debugOn) {
         printDebug(2, inname, " ", 0, " ");
-
     }
 
-    while(index != NULL)
-    {
-
+    while(index != NULL) {
         namecmp = strcmp(index->name, inname);
 
-        if(namecmp == 0)
-        {
-
+        if(namecmp == 0) {
             printed++;
 
             printf("~~~~~~~~~~~~~~~ \n");
@@ -241,130 +217,83 @@ int printRecord(struct record *start, char inname[])
             printf("Telephone Number: %s \n", index->telno);
 
             index = index->next;
-
-        }
-        else
-        {
-
+        } else {
             index = index->next;
-
         }
-
     }
 
-    if(printed == 0)
-    {
-
+    if(printed == 0) {
         printf("~~~~~~~~~~~~~~~ \n");
         printf("No records of %s found. \n", inname);
         printf("~~~~~~~~~~~~~~~ \n");
-
-    }
-    else
-    {
-
+    } else {
         printf("~~~~~~~~~~~~~~~ \n");
         printf("%d records of %s printed. \n", printed, inname);
         printf("~~~~~~~~~~~~~~~ \n");
-
     }
 
     return 1;
-
 }
 
-int modifyRecord(struct record *start, char inname[],char inaddress[], char intelno[])
-{
-
+int modifyRecord(struct record *start, char inname[],char inaddress[], char intelno[]) {
     struct record *index;
     int modified;
     int namecmp;
 
-    if (debugOn)
-    {
-
+    if (debugOn) {
         printDebug(3, inname, inaddress, 0, intelno);
-
     }
 
     index = start;
     modified = 0;
-	
-    while(index != NULL)
-    {
+
+    while(index != NULL) {
 
         namecmp = strcmp(index->name, inname);
 
-        if(namecmp == 0)
-        {
+        if(namecmp == 0) {
 
             strcpy(index->address, inaddress);
             strcpy(index->telno, intelno);
             index = index->next;
 
             modified++;
-
-        }
-        else
-        {
-
+        } else {
             index = index->next;
-
         }
-
     }
 
-    if(modified == 0)
-    {
-
+    if(modified == 0) {
         printf("~~~~~~~~~~~~~~~ \n");
         printf("No records of %s found. \n", inname);
         printf("~~~~~~~~~~~~~~~ \n");
-
-    }
-    else
-    {
-
+    } else {
         printf("~~~~~~~~~~~~~~~ \n");
         printf("%d records of %s modified. \n", modified, inname);
         printf("~~~~~~~~~~~~~~~ \n");
-
     }
 
     return 1;
-
 }
 
-void printAllRecords(struct record *start)
-{
-
+void printAllRecords(struct record *start) {
     struct record *index;
     int count;
 
     index = start;
     count = 0;
 
-    if (debugOn)
-    {
-
+    if (debugOn) {
         printDebug(4, " ", " ", 0, " ");
-
     }
 
-    if(index == NULL)
-    {
-
+    if(index == NULL) {
         printf("~~~~~~~~~~~~~~~ \n");
         printf("The database is empty. \n");
         printf("~~~~~~~~~~~~~~~ \n");
+    } else {
 
-    }
-    else
-    {
-
-        while(index != NULL)
-        {
-
+        while(index != NULL) {
             count++;
 
             printf("~~~~~~~~~~~~~~~ \n");
@@ -375,20 +304,15 @@ void printAllRecords(struct record *start)
             printf("Telephone Number: %s \n", index->telno);
 
             index = index->next;
-
         }
 
         printf("~~~~~~~~~~~~~~~ \n");
         printf("%d records printed. \n", count);
         printf("~~~~~~~~~~~~~~~ \n");
-
     }
-
 }
 
-int deleteRecord(struct record **start, char inname[])
-{
-
+int deleteRecord(struct record **start, char inname[]) {
     struct record *temp;
     struct record *index;
     struct record *previous;
@@ -398,108 +322,71 @@ int deleteRecord(struct record **start, char inname[])
     index = *start;
     deleted = 0;
 
-    if (debugOn)
-    {
-
+    if (debugOn) {
         printDebug(5, inname, " ", 0, " ");
-
     }
 
-    while(index != NULL)
-    {
-
+    while(index != NULL) {
         namecmp = strcmp(index->name, inname);
 
-        if(namecmp == 0)
-        {
+        if(namecmp == 0) {
 
-            if(index == *start)
-            {
-
+            if(index == *start) {
                 temp = index;
                 index = index->next;
                 *start = index;
 
                 free(temp);
-
                 deleted++;
-
-            }
-            else
-            {
+            } else {
 
                 temp = index;
                 index = index->next;
                 previous->next = index;
 
                 free(temp);
-
                 deleted++;
-
             }
-
-        }
-        else
-        {
-
+        } else {
             previous = index;
             index = index->next;
-
         }
-
     }
 
-    if(deleted == 0)
-    {
-
+    if(deleted == 0) {
         printf("~~~~~~~~~~~~~~~ \n");
         printf("No records of %s found. \n", inname);
         printf("~~~~~~~~~~~~~~~ \n");
-
-    }
-    else
-    {
-
+    } else {
         printf("~~~~~~~~~~~~~~~ \n");
         printf("%d records of %s deleted. \n", deleted, inname);
         printf("~~~~~~~~~~~~~~~ \n");
-
     }
 
     return 1;
-
 }
 
-void cleanUp(struct record **start)
-{
-
+void cleanUp(struct record **start) {
     struct record *temp;
     struct record *index;
     int deleted;
 
-    if(debugOn)
-    {
-
+    if(debugOn) {
         printDebug(6, " ", " ", 0, " ");
-
     }
 
     index = *start;
     deleted = 0;
 
-    while(index != NULL)
-    {
-
+    while(index != NULL) {
         temp = index;
         index = index->next;
         *start = index;
 
         free(temp);
-
         deleted++;
-
     }
-	
+
     printf("~~~~~~~~~~~~~~~ \n");
     printf("%d records deleted. \n", deleted);
     printf("~~~~~~~~~~~~~~~ \n");
@@ -508,54 +395,28 @@ void cleanUp(struct record **start)
 
 }
 
-void printDebug(int n, char inname[], char inaddress[], int inbirthyear, char intelno[])
-{
-
+void printDebug(int n, char inname[], char inaddress[], int inbirthyear, char intelno[]) {
     printf("\n*************** \n");
 
-    if(n == 1)
-    {
-
+    if(n == 1) {
         printf("Function called with parameters: \n");
         printf("addRecord(&start, %s, %s, %d, %s); \n", inname, inaddress, inbirthyear, intelno);
-
-    }
-    else if(n == 2)
-    {
-
+    } else if(n == 2) {
         printf("Function called with parameters: \n");
         printf("printRecord(start, %s); \n", inname);
-
-    }
-    else if(n == 3)
-    {
-
+    } else if(n == 3) {
         printf("Function called with parameters: \n");
         printf("modifyRecord(start, %s, %s, %s); \n", inname, inaddress, intelno);
-
-    }
-    else if(n == 4)
-    {
-
+    } else if(n == 4) {
         printf("Function called with parameters: \n");
         printf("printAllRecords(start); \n");
-
-    }
-    else if(n == 5)
-    {
-
+    } else if(n == 5) {
         printf("Function called with parameters: \n");
         printf("deleteRecord(&start, %s); \n", inname);
-
-    }
-    else if(n == 6)
-    {
-
+    } else if(n == 6) {
         printf("Function called with parameters: \n");
         printf("cleanUp(&start); \n");
-
     }
 
-    printf("*************** \n");	
-
+    printf("*************** \n");
 }

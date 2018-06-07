@@ -57,9 +57,7 @@ void writefile(struct record *start, char filename[]);
 
 extern int debugOn;
 
-int readfile(struct record **start, char filename[])
-{
-
+int readfile(struct record **start, char filename[]) {
     struct record *temp;
 	struct record *index;
 	struct record *previous;
@@ -73,48 +71,33 @@ int readfile(struct record **start, char filename[])
     readFile = fopen(filename, "r");
 	previous = NULL;
 
-    if(debugOn)
-    {
-
+    if(debugOn) {
         printf("\n*************** \n");
         printf("Function called with paramters: \n");
         printf("readFile(&start, %s); \n", filename);
         printf("*************** \n");
-
     }
 
-    if (readFile == NULL)
-    {
-
+    if (readFile == NULL) {
         perror("Error while opening the file. \n");
 		exit(0);
-
-    }
-    else
-    {
-
+    } else {
         /*Reads until the end of the file*/
         fseek(readFile, 0, SEEK_END);
         /*Returns the read file pointer position in the file*/
         fileSize = ftell(readFile);
 
-        if(fileSize == 0)
-        {
-
+        if(fileSize == 0) {
             printf("File is empty. No records were added to the database. \n");
             fclose(readFile);
             return 0;
-
         }
 
         /*Resets the read file pointer position to the beginning of the file*/
         rewind(readFile);
-
     }
 
-    do
-    {
-
+    do {
         char address[80] = {" "};
 		index = *start;
         temp = (struct record *)malloc(sizeof(struct record));
@@ -123,23 +106,18 @@ int readfile(struct record **start, char filename[])
         fgets(temp->name, 25, readFile);
         /*Removes the '\n' character in the string*/
         strtok(temp->name, "\n");
-
         /*Reads file character by character until it reads '$'*/
         fscanf(readFile, "%c", &c);
-        while(c != '$')
-        {
-
+        while(c != '$') {
             /*Assigns each character to the array position including '\n' and excluding '$'*/
             address[numberChar] = c;
             numberChar++;
             fscanf(readFile, "%c", &c);
-
         }
 
         strcpy(temp->address, address);
 
         fscanf(readFile, " %d", &temp->yearofbirth);
-
         /*Dummy fgets takes in the '\n' character that fscanf did not read*/
         fgets(dummy, 128, readFile);
 
@@ -152,28 +130,17 @@ int readfile(struct record **start, char filename[])
 
         count++;
 
-        while(index != NULL)
-        {
-
+        while(index != NULL) {
             previous = index;
             index = index->next;
-
-        }
-        if(previous == NULL)
-        {
-
+        } if(previous == NULL) {
             /*Makes sure START is still pointing to the start of the list*/
             temp->next = *start;
             *start = temp;
-
-        }
-        else
-        {
-
+        } else {
             /*Makes sure the nodes are connected*/
             previous->next = temp;
             temp->next = index;
-
         }
 
     } while(!feof(readFile));
@@ -183,65 +150,45 @@ int readfile(struct record **start, char filename[])
     fclose(readFile);
 
     return 1;
-    
 }
 
-void writefile(struct record *start, char filename[])
-{
-
+void writefile(struct record *start, char filename[]) {
     FILE *writeFile;
     int count;
 
-    if(debugOn)
-    {
-
+    if(debugOn) {
         printf("\n*************** \n");
         printf("Function called with paramters: \n");
         printf("writeFile(start, %s); \n", filename);
         printf("*************** \n");
-
     }
 
     writeFile = fopen(filename, "w");
     count = 0;
 
-    if (writeFile == NULL)
-    {
-
+    if (writeFile == NULL) {
         perror("Error while opening the file. \n");
         exit(0);
-
     }
 
-    do
-    {
-
+    do {
         fprintf(writeFile, "%s\n", start->name);
         fprintf(writeFile, "%s$\n", start->address);
         fprintf(writeFile, "%d\n", start->yearofbirth);
 
-        if(start->next != NULL)
-        {
-
+        if(start->next != NULL) {
             /*Prints '\n\n' (2 NEW LINES) when not at the end of the list to keep the same format from reading*/
             fprintf(writeFile, "%s\n\n", start->telno);
-
-        }
-        else
-        {
-
+        } else {
             /*Prints '\n' (SINGLE NEW LINE) when at the end of list to keep the same format from reading*/
             fprintf(writeFile, "%s\n", start->telno);
-
         }
 
         start = start->next;
         count++;
-
     } while(start != NULL);
 
     printf("%d records have been recorded to file: %s. \n", count, filename);
 
     fclose(writeFile);
-
 }
