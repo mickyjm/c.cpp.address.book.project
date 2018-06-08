@@ -126,6 +126,11 @@ void write_file(struct record *start, char file_name[]) {
         exit(0);
     } // end if file == NULL
 
+    if (start == NULL) {
+        printf("You have no entries in your database, therefore no records have been added into %s.\n", file_name);
+        return; // write_file return
+    } // end if start == NULL
+
     do { // do while start != NULL
         fprintf(file, "%s\n", start->name);
         fprintf(file, "%s$\n", start->address);

@@ -85,7 +85,7 @@ extern int debug_on; // external global varable from main
 int add_record(struct record **start, char input_name[], char input_address[], int input_birth_year, char input_phone_number[]) {
     // add_record variables
     struct record *temp = NULL;
-    struct record *index = start;
+    struct record *index = *start;
     struct record *previous = NULL;
 
     if (debug_on) {
@@ -125,25 +125,23 @@ int print_record(struct record *start, char input_name[]) {
     while (index != NULL) {
         is_name = strcmp(index->name, input_name);
         if (is_name == 0) {
+            ++print_count;
             // print record struct information
-            printf("~~~~~~~~~~~~~~~\n");
+            printf("~~~~~~~~~~~~~~~~~~~~\n");
             printf("Record #%d of:\n", print_count);
             printf("Name: %s\n", index->name);
             printf("Address: %s\n", index->address);
             printf("Year of Birth: %d\n", index->birth_year);
             printf("Telephone Number: %s\n", index->phone_number);
-            ++print_count;
         } // end if is_name == 0
         index = index->next;
     } // end while index != NULL
     if (print_count == 0) {
-        printf("~~~~~~~~~~~~~~~\n");
+        printf("~~~~~~~~~~~~~~~~~~~~\n");
         printf("No records of %s found.\n", input_name);
-        printf("~~~~~~~~~~~~~~~\n");
     } else { // else if print_count != 0
-        printf("~~~~~~~~~~~~~~~\n");
+        printf("~~~~~~~~~~~~~~~~~~~~\n");
         printf("%d records of %s print_count.\n", print_count, input_name);
-        printf("~~~~~~~~~~~~~~~\n");
     } // end if print_count == 0
     return 1; // print_record return
 }
@@ -171,7 +169,7 @@ int modify_record(struct record *start, char input_name[],char input_address[], 
         printf("No records of %s found.\n", input_name);
     } else { // else if modified_count != 0
         printf("~~~~~~~~~~~~~~~~~~~~\n");
-        printf("%d records of %s modified_count.\n", modified_count, input_name);
+        printf("%d records of %s modified.\n", modified_count, input_name);
     } // end if modified_count == 0
     return 1; // modify_record return
 }
@@ -179,30 +177,30 @@ int modify_record(struct record *start, char input_name[],char input_address[], 
 void print_all_records(struct record *start) {
     // print_all_records variables
     struct record *index = start;
-    int count = 1;
+    int record_count = 0;
 
     if (debug_on) {
         print_debug(4, " ", " ", 0, " ");
     } // end if debug_on
     while (index != NULL) {
+        ++record_count;
         // print struct record information
         printf("~~~~~~~~~~~~~~~~~~~~\n");
-        printf("Record #%d\n", count);
+        printf("Record #%d\n", record_count);
         printf("Name: %s\n", index->name);
         printf("Address: %s\n", index->address);
         printf("Year of Birth: %d\n", index->birth_year);
         printf("Telephone Number: %s\n", index->phone_number);
         index = index->next;
-        ++count;
     } // end while index != NULL
     printf("~~~~~~~~~~~~~~~~~~~~\n");
-    printf("%d record(s) print_count.\n", count);
+    printf("%d record(s) print_count.\n", record_count);
     return; // print_all_records return
 }
 
 int delete_record(struct record **start, char input_name[]) {
     struct record *temp = NULL;
-    struct record *index = start;
+    struct record *index = *start;
     struct record *previous = NULL;
     int delete_count = 0;
     int is_name = 0;
@@ -243,21 +241,22 @@ int delete_record(struct record **start, char input_name[]) {
 
 void delete_all_records(struct record **start) {
     struct record *temp = NULL;
-    struct record *index = start;
+    struct record *index = NULL;
     int delete_count = 0;
 
     if(debug_on) {
         print_debug(6, " ", " ", 0, " ");
     } // end if debug_on
+    index = *start;
     while (index != NULL) {
         temp = index;
         index = index->next;
-        *start = index;
         free(temp);
         delete_count++;
     } // end while index != NULL
+    *start = NULL;
     printf("~~~~~~~~~~~~~~~~~~~~\n");
-    printf("%d records delete_count. \n", delete_count);
+    printf("%d records deleted.\n", delete_count);
     return; // delete_all_records return
 }
 

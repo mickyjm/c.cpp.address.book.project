@@ -29,9 +29,7 @@ void run_program();
 void display_menu();
 
 // declare global variables
-int debug_on;
-
-debug_on = 0;
+int debug_on = 0;
 
 void main(int argc, char *argv[]) {
     // main function variables
@@ -143,11 +141,11 @@ void run_program() {
                 } // end if start != NULL
                 break; // end case 6
             case 7: // case 7 - exit program
-                if(start != NULL) {
-                    write_file(start, projectFile);
+            write_file(start, projectFile);
+                /*if(start != NULL) {
                 } else { // else if start == NULL
                     printf("Your database empty, so no records have been records to file: %s \n", projectFile);
-                } // end if start != NULL
+                } // end if start != NULL*/
                 break; // end case 7
             default: // case if input is not an integer
                 /* Takes and removes inputs thats not an integer */
