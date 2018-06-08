@@ -27,7 +27,7 @@ $ ./c_address_book debug
 ```
 
 ## Issue
-One issue is that to modify a specific record, it requires you to enter the **name**, the node you want to modify, along with the **new** address and phone number. The function name and parameters were given to us, so we had to work with it.
+One issue is that to modify a specific record, it requires you to enter the **name**, the node you want to modify, along with the **new** address and phone number. So even if the node does not exist, you are still required to input the address and phone number. The function name and parameters were given to us, so we had to work with it.
 
 ## Copyright Information
 If any ICS 212 students from Ravi's class comes across this. **BE AWARE**, I modified the code to not meet the majority of his requirements.
