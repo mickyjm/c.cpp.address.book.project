@@ -3,7 +3,7 @@
  * AUTHOR: Michael (Micky) Mangrobang
  * COURSE: ICS 212 Program Structure
  * INSTRUCTOR: Ravi Narayan
- * DATE: 17 October 2015
+ * DATE CREATED: 17 October 2015
  * REVISIONS: 07 June 2018
  * FILE: project_01_iofunctions.c
  * DESC: Source file that holds the readfile and writefile functions.
@@ -33,7 +33,7 @@ int readfile(struct record **start, char filename[]);
  **********/
 void writefile(struct record *start, char filename[]);
 
-extern int debugOn;
+extern int debug_on;
 
 int readfile(struct record **start, char filename[]) {
     struct record *temp;
@@ -46,10 +46,11 @@ int readfile(struct record **start, char filename[]) {
     char dummy[128];
     FILE *readFile;
 
+    count = 0;
     readFile = fopen(filename, "r");
 	previous = NULL;
 
-    if(debugOn) {
+    if(debug_on) {
         printf("\n*************** \n");
         printf("Function called with paramters: \n");
         printf("readFile(&start, %s); \n", filename);
@@ -123,7 +124,7 @@ int readfile(struct record **start, char filename[]) {
 
     } while(!feof(readFile));
 
-    printf("Your database has been added with %d records. \n\n", count);
+    printf("Your database has been added with %d records.\n", count);
 
     fclose(readFile);
 
@@ -134,7 +135,7 @@ void writefile(struct record *start, char filename[]) {
     FILE *writeFile;
     int count;
 
-    if(debugOn) {
+    if(debug_on) {
         printf("\n*************** \n");
         printf("Function called with paramters: \n");
         printf("writeFile(start, %s); \n", filename);
@@ -166,7 +167,7 @@ void writefile(struct record *start, char filename[]) {
         count++;
     } while(start != NULL);
 
-    printf("%d records have been recorded to file: %s. \n", count, filename);
+    printf("%d records have been recorded to file: %s.\n", count, filename);
 
     fclose(writeFile);
 }

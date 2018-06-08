@@ -3,7 +3,7 @@
  * AUTHOR: Michael (Micky) Mangrobang
  * COURSE: ICS 212 Program Structure
  * INSTRUCTOR: Ravi Narayan
- * DATE: 17 October 2015
+ * DATE CREATED: 17 October 2015
  * LAST EDITED 07 June 2018
  * FILE: address_book_database.c
  * DESC: Source file that contains majority of the user interface functions for the application
@@ -79,7 +79,7 @@ void cleanUp(struct record**start);
  **********/
 void printDebug(int n, char inname[], char inaddress[], int inbirthyear, char intelno[]);
 
-extern int debugOn;
+extern int debug_on;
 
 int addRecord(struct record **start, char inname[], char inaddress[], int inbirthyear, char intelno[]) {
 
@@ -87,7 +87,7 @@ int addRecord(struct record **start, char inname[], char inaddress[], int inbirt
     struct record *index;
     struct record *previous;
 
-    if (debugOn) {
+    if (debug_on) {
         printDebug(1, inname, inaddress, inbirthyear, intelno);
     }
 
@@ -129,7 +129,7 @@ int printRecord(struct record *start, char inname[]) {
     index = start;
     printed = 0;
 
-    if (debugOn) {
+    if (debug_on) {
         printDebug(2, inname, " ", 0, " ");
     }
 
@@ -170,7 +170,7 @@ int modifyRecord(struct record *start, char inname[],char inaddress[], char inte
     int modified;
     int namecmp;
 
-    if (debugOn) {
+    if (debug_on) {
         printDebug(3, inname, inaddress, 0, intelno);
     }
 
@@ -213,7 +213,7 @@ void printAllRecords(struct record *start) {
     index = start;
     count = 0;
 
-    if (debugOn) {
+    if (debug_on) {
         printDebug(4, " ", " ", 0, " ");
     }
 
@@ -252,7 +252,7 @@ int deleteRecord(struct record **start, char inname[]) {
     index = *start;
     deleted = 0;
 
-    if (debugOn) {
+    if (debug_on) {
         printDebug(5, inname, " ", 0, " ");
     }
 
@@ -301,7 +301,7 @@ void cleanUp(struct record **start) {
     struct record *index;
     int deleted;
 
-    if(debugOn) {
+    if(debug_on) {
         printDebug(6, " ", " ", 0, " ");
     }
 
