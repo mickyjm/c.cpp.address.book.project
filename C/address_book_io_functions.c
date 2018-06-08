@@ -51,7 +51,7 @@ int read_file(struct record **start, char file_name[]) {
     if (debug_on) {
         // displays to check if parameters passed in correctly
         printf("********************\n");
-        printf("FUNCTION: read_file(&start, %s);\n", file_name);
+        printf("FUNCTION CALL: read_file(&start, %s);\n", file_name);
         printf("********************\n");
     } // end if debug_on
     if (file == NULL) {
@@ -117,7 +117,7 @@ void write_file(struct record *start, char file_name[]) {
 
     if (debug_on) {
         printf("***************\n");
-        printf("Function called with paramters: write_file(start, %s); \n", file_name);
+        printf("FUNCTION CALL: write_file(start, %s); \n", file_name);
         printf("***************\n");
     } // end if debug_on
 

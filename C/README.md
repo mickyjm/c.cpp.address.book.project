@@ -1,17 +1,19 @@
-# ICS212-Project-01-C-Address-Book-
-ICS212 Project 01; Address Book (Fall 2015)
-Address book project made in C, back in Fall 2015 semester, when I took ICS212 (Program Structure).
+# C Address Book
+ICS 212 Project 01; Address Book (Fall 2015)
+Address book project made in C, back in Fall 2015 semester, when I took ICS 212 Program Structure.
 
-Compile and run:
+### Compile and run:
+Runs program as normal.
 ```
 $ make
-$ ./project01
+$ ./c_address_book
 ```
 
-Debug:
-```
-$ ./project01 debug
-```
+
+### Debug:
 Displays arguments passed into function.
+```
+$ ./c_address_book debug
+```
 
 Further instructions displayed in Command Line when running.

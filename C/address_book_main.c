@@ -90,13 +90,13 @@ void run_program() {
                 address = get_address();
                 birth_year = get_birth_year();
                 phone_number = get_phone_number();
-                addRecord(&start, name, address, birth_year, phone_number);
+                add_record(&start, name, address, birth_year, phone_number);
                 break; // end case 1
             case 2: // case 2 - print a record(s)
                 if (start != NULL) {
                     printf("Who's record to print?\n");
                     name = get_name();
-                    printRecord(start, name);
+                    print_record(start, name);
                 } else { // else if start == NULL
                     printf("--------------------\n");
                     printf("The database is empty.\n");
@@ -108,7 +108,7 @@ void run_program() {
                     name = get_name();
                     address = get_address();
                     phone_number = get_phone_number();
-                    modifyRecord(start, name, address, phone_number);
+                    modify_record(start, name, address, phone_number);
                 } else { // else if start == NULL
                     printf("--------------------\n");
                     printf("The database is empty.\n");
@@ -117,7 +117,7 @@ void run_program() {
             case 4: // case 4 - print all records
                 if (start != NULL) {
                     printf("Printing all records...\n");
-                    printAllRecords(start);
+                    print_all_records(start);
                 } else { // else if start == NULL
                     printf("--------------------\n");
                     printf("The database is empty.\n");
@@ -127,7 +127,7 @@ void run_program() {
                 if (start != NULL) {
                     printf("Who's record to delete?\n");
                     name = get_name();
-                    deleteRecord(&start, name);
+                    delete_record(&start, name);
                 } else { // else if start == NULL
                     printf("--------------------\n");
                     printf("The database is empty.\n");
@@ -136,7 +136,7 @@ void run_program() {
             case 6: // case 6 - delete all records
                 if (start != NULL) {
                     printf("Deleting all records... \n");
-                    cleanUp(&start);
+                    delete_all_records(&start);
                 } else { // else if start == NULL
                     printf("--------------------\n");
                     printf("The database is empty.\n");
