@@ -75,9 +75,9 @@ void run_program() {
     char *address = NULL; // char array for address input`
     int birthyear = 0; // int for birth year input
     char *telno = NULL; // char array for telephone number input
-    char projectFile[256] = {"project_01_file.txt"}; // the save file where information is stored
+    char projectFile[16] = {"save.txt"}; // the save file where information is stored
 
-    readfile(&start, projectFile);
+    read_file(&start, projectFile);
     display_menu();
 
     do { // do while action_selected != 7
@@ -144,7 +144,7 @@ void run_program() {
                 break; // end case 6
             case 7: // case 7 - exit program
                 if(start != NULL) {
-                    writefile(start, projectFile);
+                    write_file(start, projectFile);
                 } else { // else if start == NULL
                     printf("Your database empty, so no records have been records to file: %s \n", projectFile);
                 } // end if start != NULL

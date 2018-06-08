@@ -1,6 +1,6 @@
-MAIN = project_01_main
+MAIN = address_book_main
 INPUT = project_01_get_input
-IO = project_01_iofunctions
+IO = address_book_io_functions
 DBINTERACTION = project_01_database
 COMPILER = gcc
 COMPILERFLAGS = -c
