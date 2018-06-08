@@ -5,7 +5,7 @@
  * INSTRUCTOR: Ravi Narayan
  * DATE CREATED: 17 October 2015
  * LAST EDITED 07 June 2018
- * FILE: address_book_database.c
+ * FILE: address_book_linked_list_functions.c
  * DESC: Source file that contains majority of the user interface functions for the application
  ********************/
 #include <stdio.h>
@@ -95,8 +95,8 @@ int addRecord(struct record **start, char inname[], char inaddress[], int inbirt
 
     strcpy(temp->name, inname);
     strcpy(temp->address, inaddress);
-    temp->yearofbirth = inbirthyear;
-    strcpy(temp->telno, intelno);
+    temp->birth_year = inbirthyear;
+    strcpy(temp->phone_number, intelno);
 
     index = *start;
     previous = NULL;
@@ -143,8 +143,8 @@ int printRecord(struct record *start, char inname[]) {
             printf("Record #%d of: \n", printed);
             printf("Name: %s \n", index->name);
             printf("Address: %s \n", index->address);
-            printf("Year of Birth: %d \n", index->yearofbirth);
-            printf("Telephone Number: %s \n", index->telno);
+            printf("Year of Birth: %d \n", index->birth_year);
+            printf("Telephone Number: %s \n", index->phone_number);
 
             index = index->next;
         } else {
@@ -184,7 +184,7 @@ int modifyRecord(struct record *start, char inname[],char inaddress[], char inte
         if(namecmp == 0) {
 
             strcpy(index->address, inaddress);
-            strcpy(index->telno, intelno);
+            strcpy(index->phone_number, intelno);
             index = index->next;
 
             modified++;
@@ -230,8 +230,8 @@ void printAllRecords(struct record *start) {
             printf("Record #%d \n", count);
             printf("Name: %s \n", index->name);
             printf("Address: %s \n", index->address);
-            printf("Year of Birth: %d \n", index->yearofbirth);
-            printf("Telephone Number: %s \n", index->telno);
+            printf("Year of Birth: %d \n", index->birth_year);
+            printf("Telephone Number: %s \n", index->phone_number);
 
             index = index->next;
         }

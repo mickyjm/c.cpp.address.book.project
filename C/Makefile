@@ -1,5 +1,5 @@
 MAIN = address_book_main
-INPUT = project_01_get_input
+INPUT = address_book_input
 IO = address_book_io_functions
 DBINTERACTION = project_01_database
 COMPILER = gcc

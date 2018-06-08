@@ -70,7 +70,7 @@ int read_file(struct record **start, char file_name[]) {
     // else if file != NULL, read file and add nodes
     do { // do while (!feof(file)) not end of file
         // do while temporary variables
-        char address[80] = {" "};
+        char address[64] = {" "};
 
         index = *start;
         temp = (struct record *)malloc(sizeof(struct record));
@@ -85,11 +85,11 @@ int read_file(struct record **start, char file_name[]) {
             fscanf(file, "%c", &c);
         } // end while c!= '$'
         strcpy(temp->address, address);
-        fscanf(file, " %d", &temp->yearofbirth);
+        fscanf(file, " %d", &temp->birth_year);
         fgets(dummy, 2, file); // dummy fgets takes in the '\n' char fscanf did not read
         // get telephone number
-        fgets(temp->telno, 15, file);
-        strtok(temp->telno, "\n");
+        fgets(temp->phone_number, 15, file);
+        strtok(temp->phone_number, "\n");
         fgets(dummy, 2, file); // dummy fgets to get newline beween each record in the file
         ++record_count;
         while (index != NULL) {
@@ -129,13 +129,13 @@ void write_file(struct record *start, char file_name[]) {
     do { // do while start != NULL
         fprintf(file, "%s\n", start->name);
         fprintf(file, "%s$\n", start->address);
-        fprintf(file, "%d\n", start->yearofbirth);
+        fprintf(file, "%d\n", start->birth_year);
         if (start->next != NULL) {
             /* Prints '\n\n' (2 NEW LINES) when not at the end of the list to keep the same format from reading */
-            fprintf(file, "%s\n\n", start->telno);
+            fprintf(file, "%s\n\n", start->phone_number);
         } else { // else if start->next == NULL
             /* Prints '\n' (SINGLE NEW LINE) when at the end of list to keep the same format from reading */
-            fprintf(file, "%s\n", start->telno);
+            fprintf(file, "%s\n", start->phone_number);
         } // end if start->next != NULL
         start = start->next;
         ++record_count;

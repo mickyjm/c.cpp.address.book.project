@@ -73,8 +73,8 @@ void run_program() {
     char illegal_input = '\0';  // variable to catch char input
     char *name = NULL; // char array for name input
     char *address = NULL; // char array for address input`
-    int birthyear = 0; // int for birth year input
-    char *telno = NULL; // char array for telephone number input
+    int birth_year = 0; // int for birth year input
+    char *phone_number = NULL; // char array for telephone number input
     char projectFile[16] = {"save.txt"}; // the save file where information is stored
 
     read_file(&start, projectFile);
@@ -86,16 +86,16 @@ void run_program() {
         switch (action_selected) {
             case 1: // case 1 - add record
                 printf("Please input the record's following data.\n");
-                name = getName();
-                address = getAddress();
-                birthyear = getBirthyear();
-                telno = getTelno();
-                addRecord(&start, name, address, birthyear, telno);
+                name = get_name();
+                address = get_address();
+                birth_year = get_birth_year();
+                phone_number = get_phone_number();
+                addRecord(&start, name, address, birth_year, phone_number);
                 break; // end case 1
             case 2: // case 2 - print a record(s)
                 if (start != NULL) {
                     printf("Who's record to print?\n");
-                    name = getName();
+                    name = get_name();
                     printRecord(start, name);
                 } else { // else if start == NULL
                     printf("--------------------\n");
@@ -105,10 +105,10 @@ void run_program() {
             case 3: // case 3 - modify a record(s)
                 if (start != NULL) {
                     printf("Who's record to modify?\n");
-                    name = getName();
-                    address = getAddress();
-                    telno = getTelno();
-                    modifyRecord(start, name, address, telno);
+                    name = get_name();
+                    address = get_address();
+                    phone_number = get_phone_number();
+                    modifyRecord(start, name, address, phone_number);
                 } else { // else if start == NULL
                     printf("--------------------\n");
                     printf("The database is empty.\n");
@@ -126,7 +126,7 @@ void run_program() {
             case 5: // case 5 - delete a record(s)
                 if (start != NULL) {
                     printf("Who's record to delete?\n");
-                    name = getName();
+                    name = get_name();
                     deleteRecord(&start, name);
                 } else { // else if start == NULL
                     printf("--------------------\n");
