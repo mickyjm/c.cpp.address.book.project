@@ -1,44 +1,33 @@
-/*****************************************************************
-*
-* NAME: Michael Mangrobang
-*
-* HOMEWORK: Project 02
-*
-* CLASS: ICS 212
-*
-* INSTRUCTOR: Ravi Narayan
-*
-* DATE: November 21, 2015
-*
-* FILE: llist.h
-*
-* DESCRIPTION: Header for llist class
-*
-*****************************************************************/
-
+/********************
+ * <copyright information>
+ * COURSE: ICS 212 Program Structure
+ * INSTRUCTOR: Ravi Narayan
+ * DATE CREATED: 21 November 2015
+ * REVISIONS: 08 June 2018 (Micky)
+ * FILE: llist.h
+ * DESC: Header for llist class, given by Ravi, edited me by
+ ********************/
 #ifndef LLIST_H
 #define LLIST_H
-class llist
-{
+#include <string>
+class llist {
+    private:
+        record *start;
+        std::string file_name;
+        int read_file();
+        int write_file();
+        record* reverse_llist(record *);
+        void delete_all_records();
 
-  private:
-    record *start;
-    char filename[16];
-	int readfile();
-    int writefile();
-	record* reverse(record*);
-	void cleanup();
-
-  public:
-    llist();
-    llist(char[]);
-	~llist();
-	int addRecord(char[], char[], int, char[]);
-    int printRecord(char[]);
-    int modifyRecord(char[], char[], char[]);
-    void printAll();
-    int deleteRecord(char[]);
-    void reverse();
-
+    public:
+        llist();
+        llist(std::string);
+        ~llist();
+        int add_record(std::string, std::string, int, std::string);
+        int print_record(std::string);
+        int modify_record(std::string, std::string, std::string);
+        void print_all_records();
+        int delete_record(std::string);
+        void reverse_llist();
 };
 #endif

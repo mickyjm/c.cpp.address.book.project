@@ -1,23 +1,37 @@
-all: main llist input display
-	g++ -o project_02 project_02_main.o llist.o project_02_get_input.o project_02_display_messages.o
+MAIN = address_book_main
+FUNCTIONS = address_book
+LLFUNCTIONS = llist
+COMPILER = g++
+COMPILERFLAGS = -c -s
+DEBUG = -DDEBUG
 
-main:
-	g++ -c -s project_02_main.cpp
+all: $(MAIN)
 
-llist:
-	g++ -c -s llist.cpp
+debug: $(MAIN)_debug
 
-input:
-	g++ -c -s project_02_get_input.cpp
+$(MAIN): $(FUNCTIONS).o $(LLFUNCTIONS).o $(MAIN).o
+	$(COMPILER) $(FUNCTIONS).o $(LLFUNCTIONS).o $(MAIN).o -o cpp_address_book
 
-display:
-	g++ -c -s project_02_display_messages.cpp
+$(MAIN).o: $(MAIN).cpp
+	$(COMPILER) $(COMPILERFLAGS) $(MAIN).cpp
 
-debug: main_debug llist input display
-	g++ -o project_02_DEBUG project_02_main.o llist.o project_02_get_input.o project_02_display_messages.o
+$(FUNCTIONS).o: $(FUNCTIONS).cpp $(FUNCTIONS).h
+	$(COMPILER) $(COMPILERFLAGS) $(FUNCTIONS).cpp
 
-main_debug:
-	g++ -c -s -DDEBUG  project_02_main.cpp
+$(LLFUNCTIONS).o: $(LLFUNCTIONS).cpp $(LLFUNCTIONS).h record.h
+	$(COMPILER) $(COMPILERFLAGS) $(LLFUNCTIONS).cpp
+
+$(MAIN)_debug: $(FUNCTIONS)_debug.o $(LLFUNCTIONS)_debug.o $(MAIN)_debug.o
+	$(COMPILER) $(FUNCTIONS)_debug.o $(LLFUNCTIONS)_debug.o $(MAIN)_debug.o -o cpp_address_book_debug
+
+$(MAIN)_debug.o: $(MAIN).cpp
+	$(COMPILER) $(COMPILERFLAGS) $(DEBUG) $(MAIN).cpp -o $(MAIN)_debug.o
+
+$(FUNCTIONS)_debug.o: $(FUNCTIONS).cpp $(FUNCTIONS).h
+	$(COMPILER) $(COMPILERFLAGS) $(DEBUG) $(FUNCTIONS).cpp -o $(FUNCTIONS)_debug.o
+
+$(LLFUNCTIONS)_debug.o: $(LLFUNCTIONS).cpp $(LLFUNCTIONS).h record.h
+	$(COMPILER) $(COMPILERFLAGS) $(DEBUG) $(LLFUNCTIONS).cpp -o $(LLFUNCTIONS)_debug.o
 
 clean:
-	rm -rf *.o
+	rm -f *.o cpp_address_book*
