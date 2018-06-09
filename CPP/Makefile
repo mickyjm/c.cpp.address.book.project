@@ -12,7 +12,7 @@ input:
 
 display:
 	g++ -c -s project_02_display_messages.cpp
-	
+
 debug: main_debug llist input display
 	g++ -o project_02_DEBUG project_02_main.o llist.o project_02_get_input.o project_02_display_messages.o
 
@@ -20,4 +20,4 @@ main_debug:
 	g++ -c -s -DDEBUG  project_02_main.cpp
 
 clean:
-	rm project_02_main.o llist.o project_02_get_input.o project_02_display_messages.o
+	rm -rf *.o

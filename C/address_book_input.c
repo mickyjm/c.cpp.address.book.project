@@ -49,7 +49,7 @@ char* get_name() {
     printf("Please enter the contact's NAME. \n");
     fgets(name, 25, stdin);
     strtok(name, "\n");
-    return name; // get_name return
+    return name; // get_name return - end of function
 }
 
 char* get_address() {
@@ -67,7 +67,7 @@ char* get_address() {
         ++address_char_index;
         c = getchar();
     } // end while
-    return address; // get_address return
+    return address; // get_address return - end of function
 }
 
 int get_birth_year() {
@@ -84,7 +84,7 @@ int get_birth_year() {
         } // end while getchar()
         printf(" is not an integer. Please enter an integer value. \n");
     } // end while scanf()
-    return birth_year; // get_birth_year return
+    return birth_year; // get_birth_year return - end of function
 }
 
 char* get_phone_number() {
@@ -96,5 +96,5 @@ char* get_phone_number() {
     printf("Please enter the contact's TELEPHONE NUMBER. \n");
     fgets(phone_number, 15, stdin);
     strtok(phone_number, "\n");
-    return phone_number; // get_phone_number return
+    return phone_number; // get_phone_number return - end of function
 }

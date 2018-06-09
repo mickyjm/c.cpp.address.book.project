@@ -4,7 +4,7 @@
  * COURSE: ICS 212 Program Structure
  * INSTRUCTOR: Ravi Narayan
  * DATE CREATED: 17 October 2015
- * LAST EDITED 07 June 2018
+ * REVISIONS: 07 June 2018
  * FILE: address_book_linked_list_functions.c
  * DESC: Source file that contains functions for the linked list
  ********************/
@@ -143,7 +143,7 @@ int print_record(struct record *start, char input_name[]) {
         printf("~~~~~~~~~~~~~~~~~~~~\n");
         printf("%d records of %s print_count.\n", print_count, input_name);
     } // end if print_count == 0
-    return 1; // print_record return
+    return 1; // print_record return - end of function
 }
 
 int modify_record(struct record *start, char input_name[],char input_address[], char input_phone_number[]) {
@@ -171,7 +171,7 @@ int modify_record(struct record *start, char input_name[],char input_address[], 
         printf("~~~~~~~~~~~~~~~~~~~~\n");
         printf("%d records of %s modified.\n", modified_count, input_name);
     } // end if modified_count == 0
-    return 1; // modify_record return
+    return 1; // modify_record return - end of function
 }
 
 void print_all_records(struct record *start) {
@@ -195,7 +195,7 @@ void print_all_records(struct record *start) {
     } // end while index != NULL
     printf("~~~~~~~~~~~~~~~~~~~~\n");
     printf("%d record(s) print_count.\n", record_count);
-    return; // print_all_records return
+    return; // print_all_records return - end of function
 }
 
 int delete_record(struct record **start, char input_name[]) {
@@ -236,7 +236,7 @@ int delete_record(struct record **start, char input_name[]) {
         printf("~~~~~~~~~~~~~~~~~~~~\n");
         printf("%d records of %s delete_count. \n", delete_count, input_name);
     } // end if delete_count == 0
-    return 1; // delete_record return
+    return 1; // delete_record return - end of function
 }
 
 void delete_all_records(struct record **start) {
@@ -257,7 +257,7 @@ void delete_all_records(struct record **start) {
     *start = NULL;
     printf("~~~~~~~~~~~~~~~~~~~~\n");
     printf("%d records deleted.\n", delete_count);
-    return; // delete_all_records return
+    return; // delete_all_records return - end of function
 }
 
 void print_debug(int message, char input_name[], char input_address[], int input_birth_year, char input_phone_number[]) {
@@ -278,5 +278,5 @@ void print_debug(int message, char input_name[], char input_address[], int input
         printf("delete_all_records(&start);\n");
     } // end if message == 1
     printf("********************\n");
-    return; // print_debug return
+    return; // print_debug return - end of function
 }

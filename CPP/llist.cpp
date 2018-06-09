@@ -114,10 +114,10 @@ int llist::readfile()
 	struct record *temp;
 	struct record *index;
 	struct record *previous;
-	
+
 	int fileSize;
 	int countRecords;
-	
+
 	char dummy[128];
 
     readFile.open(filename);
@@ -130,7 +130,7 @@ int llist::readfile()
 	else
 	{
 		readFile.seekg(0, readFile.end);
-		
+
 		fileSize = readFile.tellg();
 
 		if (fileSize == 0)
@@ -146,7 +146,7 @@ int llist::readfile()
 	countRecords = 0;
 
 	previous = NULL;
-	
+
 	do
 	{
 		char address[80] = { " " };
@@ -154,7 +154,7 @@ int llist::readfile()
 		temp = new record;
 		index = start;
 
-		readFile.getline(temp->name, 25);	
+		readFile.getline(temp->name, 25);
 		readFile.getline(temp->address, 80, '$');
 		readFile >> temp->yearofbirth;
 		readFile.getline(dummy, 128);
@@ -183,7 +183,7 @@ int llist::readfile()
 	} while (!readFile.eof());
 
 	readFile.close();
-	
+
 	return countRecords;
 
 }
@@ -194,11 +194,11 @@ int llist::writefile()
 	ofstream writeFile;
 
 	record *index;
-	
+
 	int written;
 
 	writeFile.open(filename);
-	
+
 	index = start;
 
 	written = 0;
@@ -251,7 +251,7 @@ record* llist::reverse(record *currentNode)
 
 		return start;
 	}
-	
+
 	reverse(currentNode->next);
 
 	next = currentNode->next;
@@ -264,7 +264,7 @@ void llist::cleanup()
 
 	struct record *temp;
 	struct record *index;
-	
+
 	int deleted;
 
 	if (start == NULL)
@@ -285,7 +285,7 @@ void llist::cleanup()
 		index = index->next;
 		start = index;
 
-		free(temp);
+		delete temp;
 
 		deleted++;
 	}
@@ -301,7 +301,7 @@ int llist::addRecord(char inname[], char inaddress[], int inyear, char intelno[]
     struct record *temp;
     struct record *index;
     struct record *previous;
-    
+
 	int i;
 
 	#ifdef DEBUG
@@ -321,14 +321,14 @@ int llist::addRecord(char inname[], char inaddress[], int inyear, char intelno[]
 	{
 		temp->address[i] = inaddress[i];
 	}
-    
+
     temp->yearofbirth = inyear; /* Set Record YEAROFBIRTH */
 
     for (i = 0; i < 15; i++) /* Set Record TELNO */
     {
         temp->telno[i] = intelno[i];
     }
-    
+
     index = start;
     previous = NULL;
 
@@ -374,7 +374,7 @@ int llist::printRecord(char inname[])
 
 		return -1;
 	}
-	
+
 	index = start;
 	printed = 0;
 
@@ -500,7 +500,7 @@ void llist::printAll()
 		cout << "---------------" << endl;
 		cout << "The Database is empty. Therefore, no records have been printed." << endl;
 		cout << "~~~~~~~~~~~~~~~" << endl;
-		
+
 		return;
 	}
 	else
@@ -557,7 +557,7 @@ int llist::deleteRecord(char inname[])
 	}
 
 	index = start;
-	
+
 	deleted = 0;
 
 	while (index != NULL)
@@ -565,7 +565,7 @@ int llist::deleteRecord(char inname[])
 
 		if ((string)inname == (string)index->name)
 		{
-			
+
 			if (index == start)
 			{
 				temp = index;

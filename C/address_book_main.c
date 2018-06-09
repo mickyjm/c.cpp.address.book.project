@@ -61,7 +61,7 @@ void main(int argc, char *argv[]) {
     printf("--------------------\n");
     printf("   App terminated\n");
     printf("********************\n");
-    exit(0); // exit program with status 0
+    exit(0); // exit program with status 0 - end of main function
 }
 
 void run_program() {
@@ -80,7 +80,6 @@ void run_program() {
 
     do { // do while action_selected != 7
         scanf(" %d", &action_selected);
-
         switch (action_selected) {
             case 1: // case 1 - add record
                 printf("Please input the record's following data.\n");
@@ -158,7 +157,7 @@ void run_program() {
             display_menu();
         } // end if action_selected != 7
     } while(action_selected != 7); // end do while (action_selected != 7)
-    return; // run_program return
+    return; // run_program return - end of function
 }
 
 void display_menu(int message) {
@@ -173,5 +172,5 @@ void display_menu(int message) {
     printf("\t6: Delete all existing records from the database.\n");
     printf("\t7: Quit the program.\n");
     printf("What would you like to do?\n");
-    return; // display_menu return
+    return; // display_menu return - end of function
 }

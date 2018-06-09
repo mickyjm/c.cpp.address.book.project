@@ -107,7 +107,7 @@ int read_file(struct record **start, char file_name[]) {
     } while (!feof(file)); // end while
     printf("Your database has been added with %d records.\n", record_count);
     fclose(file);
-    return 1; // read_file return
+    return 1; // read_file return - end of function
 }
 
 void write_file(struct record *start, char file_name[]) {
@@ -147,5 +147,5 @@ void write_file(struct record *start, char file_name[]) {
     } while (start != NULL); // end while
     printf("%d records have been recorded to file: %s.\n", record_count, file_name);
     fclose(file);
-    return; // write_file return
+    return; // write_file return - end of function
 }

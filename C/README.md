@@ -1,15 +1,18 @@
 # C Address Book
-ICS 212 Project 01; Address Book (Fall 2015)
+ICS 212 Program Structure - Project 01; Address Book (Fall 2015)
 Address book project made in C, back in Fall 2015 semester, when I took ICS 212 Program Structure.
 
-## Compile
-### Normal:
-Runs program as normal.
+## Compile and Run
+### Compile with make:
 ```
 $ make
+```
+### Run normal:
+Runs program as normal.
+```
 $ ./c_address_book
 ```
-### Debug:
+### Run debug:
 Displays arguments passed into function.
 ```
 $ ./c_address_book debug
@@ -27,7 +30,8 @@ $ ./c_address_book debug
 ```
 
 ## Issue
-One issue is that to modify a specific record, it requires you to enter the **name**, the node you want to modify, along with the **new** address and phone number. So even if the node does not exist, you are still required to input the address and phone number. The function name and parameters were given to us, so we had to work with it.
+- One issue is that to modify a specific record, it requires you to enter the **name**, the node you want to modify, along with the **new** address and phone number. So even if the node does not exist, you are still required to input the address and phone number. The function name and parameters were given to us, so we had to work with it.
+- Another issue is that you **need** the *save.txt* file or else the program will automatically close.
 
-## Copyright Information
+## Copyright Notice
 If any ICS 212 students from Ravi's class comes across this. **BE AWARE**, I modified the code to not meet the majority of his requirements.

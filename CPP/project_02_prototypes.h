@@ -1,33 +1,18 @@
-/*****************************************************************
-*
-* NAME: Michael Mangrobang
-*
-* HOMEWORK: Project 02
-*
-* CLASS: ICS 212
-*
-* INSTRUCTOR: Ravi Narayan
-*
-* DATE: November 21, 2015
-*
-* FILE: project_02_prototypes.h
-*
-* DESCRIPTION: Contains the majority of the project's prototypes
-*
-*****************************************************************/
+/********************
+ * <copyright information>
+ * AUTHOR: Michael (Micky) Mangrobang
+ * COURSE: ICS 212 Program Structure
+ * INSTRUCTOR: Ravi Narayan
+ * DATE CREATED: November 21, 2015
+ * REVISIONS: 08 June 2018
+ * FILE: project_02_prototypes.h
+ * DESCRIPTION: Contains the majority of the project's prototypes
+ ********************/
 
 #ifndef PROJECT_02_PROTOTYPES_H
 #define PROJECT_02_PROTOTYPES_H
 
-/*****************************************************************
-*
-* Function name: debugMessage
-*
-* DESCRIPTION: Displays if debug mode is on or not
-*
-*****************************************************************/
-
-void debugMessage();
+void run_program();
 
 /*****************************************************************
 *

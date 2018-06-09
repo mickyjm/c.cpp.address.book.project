@@ -1,24 +1,16 @@
-/*****************************************************************
-*
-* NAME: Michael Mangrobang
-*
-* HOMEWORK: Project 02
-*
-* CLASS: ICS 212
-*
-* INSTRUCTOR: Ravi Narayan
-*
-* DATE: November 21, 2015
-*
-* FILE: project_02_get_input.cpp
-*
-* DESCRIPTION: Source file that contains all input functions
-*
-*****************************************************************/
-
-#include "project_02_prototypes.h"
+/********************
+ * <copyright information>
+ * AUTHOR: Michael Mangrobang
+ * COURSE: ICS 212 Program Structure
+ * INSTRUCTOR: Ravi Narayan
+ * DATE: 21 November 2015
+ * REVISIONS: 08 June 2018
+ * FILE: project_02_get_input.cpp
+ * DESCRIPTION: Source file that contains all input functions
+ ********************/
 #include <iostream>
 #include <string>
+#include "project_02_prototypes.h"
 using namespace std;
 
 int menuInput()
@@ -51,7 +43,7 @@ int menuInput()
 	cin.clear();
 
     return input;
-	
+
 }
 
 char *getName()
@@ -138,7 +130,7 @@ char *getFileName()
 
 	input = new char[128];
 	file = new char[16];
-	
+
 	welcomeMessage();
 
 	cout << "Please enter your FILE NAME" << endl << "(ONLY the first 11 characters will be accepted, '.txt' file extension will be added): ";
@@ -149,7 +141,7 @@ char *getFileName()
 	{
 		file[count] = input[count];
 	}
-	
+
 	file[count++] = '.';
 	file[count++] = 't';
 	file[count++] = 'x';
