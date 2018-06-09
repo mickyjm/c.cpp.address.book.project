@@ -72,8 +72,6 @@ int llist::read_file() {
     int record_count = 0;
     std::string dummy = "";
 
-    //read_file.open(file_name);
-
     if (!read_file.is_open()) {
         read_file.close();
         return -1;
@@ -91,12 +89,6 @@ int llist::read_file() {
 
         temp = new record;
         index = start;
-        /*read_file.getline(temp->name, 25);
-        read_file.getline(temp->address, 80, '$');
-        read_file >> temp->birth_year;
-        read_file.getline(dummy, 128);
-        read_file.getline(temp->phone_number, 15);
-        read_file.getline(dummy, 128);*/
         std::getline(read_file, temp->name);
         std::getline(read_file, temp->address, '$');
         read_file >> temp->birth_year;
@@ -125,7 +117,6 @@ int llist::write_file() {
     std::ofstream write_file(file_name.c_str());
     record *index = start;
     int record_count = 0;
-    //write_file.open(file_name);
 
     if (start == NULL) {
         std::cout << "The database is empty. Therefore, no records have been added to file: " << file_name << '\n';
@@ -137,10 +128,10 @@ int llist::write_file() {
         write_file << index->address << "$" << "\n";
         write_file << index->birth_year << "\n";
         if (index->next != NULL) {
-            /* Prints '\n\n' (2 NEW LINES) when not at the end of the list to keep the same format from reading */
+            // Prints 2 newlines when not at the end of the list to keep the same format from reading
             write_file << index->phone_number << "\n\n";
         } else { // else if index->start == NULL
-            /* Prints '\n' (SINGLE NEW LINE) when at the end of list to keep the same format from reading */
+            // Prints 1 newline when at the end of list to keep the same format from reading
             write_file << index->phone_number << "\n";
         } // end if index->next != NULL
         index = index->next;

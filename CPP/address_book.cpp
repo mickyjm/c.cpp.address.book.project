@@ -24,7 +24,6 @@ void run_program() {
     int menu_selection = 0;
 
     display_commands();
-
     do { // do while menu_selection != 7
         menu_selection = get_menu_selection();
         switch (menu_selection) {
@@ -79,7 +78,7 @@ void run_program() {
 
 void debug_function(int function_call, std::string name, std::string address, std::string phone_number, int year) {
     std::cout << "********************\n";
-    if(function_call == 1) {
+    if (function_call == 1) {
         std::cout << "llist::addRecord( " << name << ", " << address << ", " << year << ", " << phone_number << " );\n";
     } else if (function_call == 2) {
         std::cout << "llist::printRecord( " << name << " )n";
@@ -87,9 +86,9 @@ void debug_function(int function_call, std::string name, std::string address, st
         std::cout << "llist::modifyRecord( " << name << ", " << address << ", " << phone_number << " );\n";
     } else if (function_call == 4) {
         std::cout << "llist::printAll( );\n";
-    } else if(function_call == 5) {
+    } else if (function_call == 5) {
         std::cout << "llist::deleteRecord( " << name << " )n";
-    } else if(function_call == 6) {
+    } else if (function_call == 6) {
         std::cout << "llist::reverse( );\n";
     } // end if function_call checks
     std::cout << "********************\n";
@@ -97,7 +96,7 @@ void debug_function(int function_call, std::string name, std::string address, st
 }
 
 void display_commands() {
-    std::cout << "Usage: \n";
+    std::cout << "Usage:\n";
     std::cout << "\t1: Add a new record into the database.\n";
     std::cout << "\t2: Print information about a record using the name as the key. \n";
     std::cout << "\t3: Modify a record in the database using the name as the key. \n";
@@ -117,7 +116,7 @@ int get_menu_selection() {
     while (std::cin.fail() || selection < 1 || selection > 7) { // while input is not valid
         if (std::cin.fail()) {
             std::cout << "Your input was not an integer. Please enter an integer: ";
-        } else if( selection < 1 || selection > 7) {
+        } else if ( selection < 1 || selection > 7) {
             std::cout << "Not a valid choice.\n";
             display_commands();
         } // end if std::cin.fail()
@@ -186,6 +185,5 @@ std::string get_file_name() {
     std::cout << "Please enter your FILE NAME ('.txt' file extension will be added): ";
     std::getline(std::cin, file_name);
     file_name += ".txt";
-    //std::cin.clear();
     return file_name; // get_file_name return - end of function
 }

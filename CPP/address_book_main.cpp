@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
         std::cout << "Application does not take arguments." << std::endl;
         return -1;
     } // end if argc > 1
+
     // DEBUG mode only enabled if compiled with -DDEBUG flag
     #ifdef DEBUG
     {
@@ -26,17 +27,13 @@ int main(int argc, char *argv[]) {
     }
     #endif // end ifdef DEBUG
 
-
     std::cout << "********************\n";
     std::cout << "Welcome User!\n";
     std::cout << "This is Micky's Address Book App!\n";
     std::cout << "--------------------\n";
-
     run_program();
-
     std::cout << "--------------------\n";
     std::cout << "App terminated\n";
     std::cout << "********************\n";
-
     return 0;
 }
